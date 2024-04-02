@@ -27,7 +27,7 @@ def hangman():
     guessed_letters = []
     wrong_guesses = 0
     word_display = update_word_display()
-    return render_template('hangman.html', word_display=word_display, guessed_letters=guessed_letters, wrong_guesses=wrong_guesses)
+    return render_template('index.html', word_display=word_display, guessed_letters=guessed_letters, wrong_guesses=wrong_guesses)
 
 @app.route('/guess', methods=['POST'])
 def guess():
@@ -44,7 +44,7 @@ def guess():
         message = "Game Over! The word was: '{}'".format(word)
     else:
         message = ""
-    return render_template('hangman.html', word_display=word_display, guessed_letters=guessed_letters, wrong_guesses=wrong_guesses, message=message)
+    return render_template('index.html', word_display=word_display, guessed_letters=guessed_letters, wrong_guesses=wrong_guesses, message=message)
 
 if __name__ == '__main__':
     app.run(debug=True)
